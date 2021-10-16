@@ -8,7 +8,6 @@ from coapthon.resources.resource import Resource
 Host = "0.0.0.0"  		# 本机IP地址
 Port = 5683             # 端口号
 
-
 class BasicResource(Resource):
     def __init__(self, name="BasicResource", coap_server=None):
         super(BasicResource, self).__init__(name, coap_server, visible=True,
