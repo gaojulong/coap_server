@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding:utf-8 -*-
 from coapthon.server.coap import CoAP
-
-import coap_weather
+from coap_api import NTPResource, WeatherResource
 
 
 Host = "0.0.0.0"  		# 本机IP地址
@@ -12,7 +11,8 @@ Port = 5683             # 端口号
 class CoAPServer(CoAP):
     def __init__(self, host, port):
         CoAP.__init__(self, (host, port))
-        self.add_resource('weather', coap_weather.WeatherResource())
+        self.add_resource('weather', WeatherResource())
+        self.add_resource('ntp', NTPResource())
 
 
 def main():
