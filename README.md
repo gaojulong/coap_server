@@ -8,3 +8,8 @@ pip3 install -r requirements.txt
 ~~~
 python main.py
 ~~~  
+
+
+
+#### 参考：
+[CoAP Git仓库](https://github.com/Tanganelli/CoAPthon)  
