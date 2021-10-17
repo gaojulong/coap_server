@@ -71,10 +71,42 @@ class NTPResource(Resource):
         return self
 
 
-class WeatherResource(Resource):
-    def __init__(self, name="WeatherResource", coap_server=None):
-        super(WeatherResource, self).__init__(name, coap_server, visible=True,
-                                              observable=True, allow_children=True)
+class WeatherNowResource(Resource):
+    def __init__(self, name="WeatherNowResource", coap_server=None):
+        super(WeatherNowResource, self).__init__(name, coap_server, visible=True,
+                                                 observable=True, allow_children=True)
+        self.payload = ""
+
+    def render_GET_advanced(self, request, response):
+        return self
+
+    def render_PUT(self, request):
+        self.payload = request.payload
+        return self
+
+    def render_PUT_advanced(self, request, response):
+        pass
+
+    def render_POST(self, request):
+        pass
+
+    def render_POST_advanced(self, request, response):
+        pass
+
+    def render_DELETE(self, request):
+        return True
+
+    def render_DELETE_advanced(self, request, response):
+        pass
+
+    def render_GET(self, request):
+        return self
+
+
+class Weather3DResource(Resource):
+    def __init__(self, name="Weather3DResource", coap_server=None):
+        super(Weather3DResource, self).__init__(name, coap_server, visible=True,
+                                                observable=True, allow_children=True)
         self.payload = ""
 
     def render_GET_advanced(self, request, response):

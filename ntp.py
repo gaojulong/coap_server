@@ -31,9 +31,14 @@ def get_time():
     time_struct = time.localtime(time_stamp)
 
     DEBUG(time_struct)
-    time_format = time.strftime('%m-%d %H:%M:%S', time_struct)
+    time_format = time.strftime('%Y-%m-%d %H:%M:%S', time_struct)
     DEBUG(time_format)
-    return time_format
+
+    data['code'] = 200
+    data['time_format'] = time_format
+    # DEBUG(data)
+    # json.dumps(data)
+    return str(data)
 
 
 if __name__ == '__main__':
