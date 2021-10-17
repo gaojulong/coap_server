@@ -36,9 +36,9 @@ def get_time():
 
     data['code'] = 200
     data['time_format'] = time_format
-    # DEBUG(data)
-    # json.dumps(data)
-    return str(data)
+    data = json.dumps(data)
+
+    return data
 
 
 if __name__ == '__main__':
