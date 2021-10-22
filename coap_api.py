@@ -1,5 +1,6 @@
 from coapthon.resources.resource import Resource
 import ntp
+import weather
 
 
 class BasicResource(Resource):
@@ -67,6 +68,7 @@ class NTPResource(Resource):
         pass
 
     def render_GET(self, request):
+        print(request)
         self.payload = ntp.get_time()
         return self
 
@@ -100,6 +102,8 @@ class WeatherNowResource(Resource):
         pass
 
     def render_GET(self, request):
+        self.payload = weather.get_weather_now(request.uri_query)
+        print(request.uri_query)
         return self
 
 
@@ -132,4 +136,7 @@ class Weather3DResource(Resource):
         pass
 
     def render_GET(self, request):
+
+        self.payload = weather.get_weather_3d(request.uri_query)
+        print(request.uri_query)
         return self
